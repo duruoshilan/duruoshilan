@@ -14,10 +14,14 @@
     systemctl disable sshd
 ```
 
+- 中断pacman
+```
+sudo rm /var/lib/pacman/db.lck
+```
 
 - 配置输入法
 
-- 参考代码 https://wiki.archlinux.org/title/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+    - 参考代码 https://wiki.archlinux.org/title/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
 
 
     1. 安装软件包 fcitx5
