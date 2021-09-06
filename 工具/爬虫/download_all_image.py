@@ -1,16 +1,14 @@
-import json, uuid, time
-import requests
+import json, requests
 
 with open("all_image_urls.json", "r") as f:
-    lists = f.read()
+    posts = f.read()
 
-lists = json.loads(lists)
+posts = json.loads(posts)
 
-for list_name in lists:
-    urls = lists[list_name]
-    for url in urls:
-        print(url)
+for post in posts:
+    for image in post["images"]:
+        url = image["image_url"]
+        img_id = image["image_id"]
         r = requests.get(url).content
-        with open(str(uuid.uuid1()) + ".jpg", "wb+") as f:
+        with open(str(img_id) + ".jpg", "wb+") as f:
             f.write(r)
-    
