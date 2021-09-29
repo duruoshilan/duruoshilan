@@ -59,6 +59,8 @@ apt install shadowsocks-libev
     "method":"chacha20-ietf-poly1305" 
 }
 
+systemctl start shadowsocks-libev-local@service
+
 apt install proxychains4
 # 编辑 /etc/proxychains4.conf 配置文件
 # 修改 socket5
