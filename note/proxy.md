@@ -21,6 +21,7 @@ alias pc="proxychains4"
 
 - 配置shadowsocks-libev
 ```
+# centos 安装
 # install dependencies
 yum install epel-release -y
 yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto udns-devel libev-devel -y
@@ -39,3 +40,27 @@ systemctl enable shadowsocks-libev
 systemctl start shadowsocks-libev-local
 systemctl status shadowsocks-libev-local
 ```
+
+```
+# ubuntu 安装
+apt install shadowsocks-libev
+
+# 备份/etc/shadowsocks-libev/config.json
+# 修改客户端systemd服务单元配置文件 /lib/systemd/system/shadowsocks-libev-local@.service 中 ss-local加载的配置文件名
+# 编辑 /etc/shadowsocks-libev/下的配置文件
+{
+    "server":"server ip", 
+    "mode":"tcp_and_udp", 
+    "server_port": 8888 , 
+    "local_address":"127.0.0.1", 
+    "local_port":1080, 
+    "password":" ACRrobo9ymXb ", 
+    "timeout":60, 
+    "method":"chacha20-ietf-poly1305" 
+}
+
+apt install proxychains4
+# 编辑 /etc/proxychains4.conf 配置文件
+# 修改 socket5
+```
+

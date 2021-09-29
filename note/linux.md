@@ -70,3 +70,45 @@ sudo rm /var/lib/pacman/db.lck
     org.gnome.settings-daemon.plugins.xsettings overrides \
     "{'Gtk/IMModule':<'fcitx'>}"
     ```
+
+# ubuntu 的一些系统管理
+
+- 查看磁盘空间
+```
+df -h
+```
+
+- 更新系统
+```
+apt update
+apt upgrade
+do-release-upgrade
+```
+
+- 基本清理
+```
+apt clean		# 清理apt缓存内容
+apt autoremove		# 清理任何未用的依赖项
+apt autoclean		# 清理不完整的软件包
+apt autoremove app-name # 卸载应用
+```
+
+- 删除旧内核
+```
+apt remove --purge $(dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d')
+```
+
+- 域名无法解析
+```
+# 查看DNS Server
+cat /etc/resolv.conf
+# 只有一个DNS Server的地址 127.0.0.53，我们可以采取如下方法给其配置DNS Server。
+
+# vim /etc/resolv.conf 添加如下内容
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+nameserver 127.0.0.1
+
+/etc/init.d/networking restart  # 重启网络
+```
+
