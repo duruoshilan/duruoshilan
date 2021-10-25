@@ -127,6 +127,9 @@ HandleLidSwitch=ignore
 ```
 在 /etc/netctl 中添加自己的配置文件
 netctl start profile
+
 可以通过 netctl enable profile 开机启动配置文件
 也可以通过 systemctl enable 启动某个 netctl 子服务
+
+在启动某项配置文件时，如果失败，可以通过 ip link 将对应的网卡 down 掉。
 ```
