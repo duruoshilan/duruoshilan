@@ -112,3 +112,21 @@ nameserver 127.0.0.1
 /etc/init.d/networking restart  # 重启网络
 ```
 
+# Arch 系统管理
+
+- 禁止笔记本盒盖休眠
+```
+vim /etc/systemd/logind.conf
+
+# 修改
+#HandleLidSwitch=suspend
+HandleLidSwitch=ignore
+```
+
+- netctl 控制网络
+```
+在 /etc/netctl 中添加自己的配置文件
+netctl start profile
+可以通过 netctl enable profile 开机启动配置文件
+也可以通过 systemctl enable 启动某个 netctl 子服务
+```

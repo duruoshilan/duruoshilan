@@ -25,7 +25,6 @@ ffmpeg -i input.mkv -filter:v "setpts=0.5*PTS" output.mkv
 ffmpeg -i input.mkv -r 16 -filter:v "setpts=0.25*PTS" output.mkv
 ffmpeg -i input.mkv -filter:v "setpts=2.0*PTS" output.mkv
 2倍速 4倍速 0.5倍速
-
 n(倍速)/10
 ```
 
