@@ -1,16 +1,48 @@
-from unit1.lesson3 import *
+from ast import IsNot
+from unit1.lesson2 import *
 
-def work():
+def isok():
     moveForward()
     moveForward()
-    """
-    collectHeart()
+    toggleSwitch()
+
+    turnLeft()
+    turnLeft()
     moveForward()
     turnRight()
+
+    moveForward()
+    collectWord()
+    moveForward()
+    collectWord()
+    moveForward()
+    moveForward()
+    collectWord()
+    moveForward()
+    moveForward()
+    
+    turnLeft()
+    moveForward()
+    moveForward()
+
+    collectWord()
+
+def notok():
     moveForward()
     turnLeft()
-    moveFoward()
-    toggleSwitch()
-    """
+    moveForward()
+    collectWord()
+    moveForward()
+    collectWord()
+    moveForward()
+    moveForward()
+    collectWord()
+    moveForward()
+
+def work():
+    notok()
+    # isok()
+
+
 
 game.play(work)

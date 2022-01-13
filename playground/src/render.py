@@ -11,13 +11,15 @@ class Render:
     
     def run(self):
         pygame.init()
-        screen = pygame.display.set_mode((self.map_line * self.size, self.map_col * self.size))
+        screen = pygame.display.set_mode((self.map_col * self.size, self.map_line * self.size))
         clock = pygame.time.Clock()
 
         self.sprite_group.add(self.scenes.portals)
         self.sprite_group.add(self.scenes.player)
         self.sprite_group.add(self.scenes.hearts)
         self.sprite_group.add(self.scenes.switchs)
+        self.sprite_group.add(self.scenes.word)
+        self.sprite_group.add(self.scenes.monster)
         
         while True:
             for event in pygame.event.get():

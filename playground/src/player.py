@@ -43,6 +43,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.sprite_x = 0
 
+        self.start_x, self.start_y = x, y
         self.x, self.y = x, y
         self.scale = 50
 
@@ -94,14 +95,18 @@ class Player(pygame.sprite.Sprite):
         pygame.time.delay(1*500)
 
         portal = self.scenes.getPortal(self.x, self.y)
+        if self.scenes.isOnMonster(self.x, self.y):
+            self.x, self.y = self.start_x, self.start_y
         if portal:
             portal.jump()
 
     def toggleSwitch(self):
         switch = self.scenes.getSwitch(self.x, self.y)
+        monster = self.scenes.getMonster()
         if switch :
             pygame.time.delay(1*200)
             switch.changeStatus()
+            monster.changeStatus()
             pygame.time.delay(1*200)
 
     def collectHeart(self):
@@ -128,3 +133,9 @@ class Player(pygame.sprite.Sprite):
             self.isFlip = True
             
         pygame.time.delay(1*500)
+    
+    def collectWord(self):
+        word = self.scenes.getWord(self.x, self.y)
+        if word:
+            word.x = word.to_x
+            word.y = word.to_y
